@@ -8,7 +8,7 @@ module.exports = {
   fetch: function(req, res, next) {
     Todo.find()
     .exec(function(err, todo) {
-      if (err) return next(err);
+      // if (err) return next(err);
       return res.json(todo);
     });
   },
@@ -36,7 +36,7 @@ module.exports = {
       if (todo === undefined) return res.notFound({
         "error": "Todo not found."
       });
-      if (err) return next(err);
+      // if (err) return next(err);
       return res.json(todo);
     });
   },
@@ -52,7 +52,7 @@ module.exports = {
       if (todo.length === 0) return res.notFound({
         "error": "Record not found."
       });
-      if (err) return next(err);
+      // if (err) return next(err);
       res.json(todo);
     });
   },
@@ -65,14 +65,14 @@ module.exports = {
       });
     }
     Todo.findOne({
-        id: id
-      }).exec(function(err, result) {
-      if (err) return res.serverError(err);
+      id: id
+    }).exec(function(err, result) {
+      // if (err) return res.serverError(err);
       if (!result) return res.notFound({
         "error": "Record not found."
       });
       Todo.destroy(id, function(err) {
-        if (err) return next(err);
+        // if (err) return next(err);
         return res.ok();
       });
     });
