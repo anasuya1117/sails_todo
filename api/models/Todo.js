@@ -4,14 +4,14 @@ module.exports = {
       type: 'integer',
       autoIncrement: true
     },
-    name: {
+    title: {
       type: 'string',
       required: true
     },
     description: {
       type: 'string',
     },
-    done: {
+    isCompleted: {
       type: 'boolean',
       default: false
     }

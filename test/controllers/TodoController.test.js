@@ -43,9 +43,9 @@ describe('Todo Controller', function() {
   it('post /todo', function(done) {
     var agent = supertest.agent(sails.hooks.http.app);
     var todo = {
-      "name": "Volkswagen Tiguan",
+      "title": "Volkswagen Tiguan",
       "description": "This is a dummy text",
-      "done": false
+      "isCompleted": false
     };
     agent
     .post('/todo')
@@ -56,7 +56,7 @@ describe('Todo Controller', function() {
         done(err);
       } else {
         createdtodo = res.body;
-        assert.equal(createdtodo.name, 'Volkswagen Tiguan');
+        assert.equal(createdtodo.title, 'Volkswagen Tiguan');
         done();
       }
     });
@@ -67,7 +67,7 @@ describe('Todo Controller', function() {
     
     var todo = {
       "description": "This is a dummy text",
-      "done": false
+      "isCompleted": false
     };
     agent
       .post('/todo')
@@ -86,7 +86,7 @@ describe('Todo Controller', function() {
         if (err) {
           done(err);
         } else {
-          assert.equal(createdtodo.name, 'Volkswagen Tiguan');
+          assert.equal(createdtodo.title, 'Volkswagen Tiguan');
           done();
         }
       });
@@ -98,14 +98,14 @@ describe('Todo Controller', function() {
     agent
       .put(todoUrl)
       .send({
-        name: 'Tata Nexon New'
+        title: 'Tata Nexon New'
       })
       .expect(200)
       .end(function(err, res) {
         if (err) {
           done(err);
         } else {
-          assert.equal(res.body[0].name, 'Tata Nexon New');
+          assert.equal(res.body[0].title, 'Tata Nexon New');
           done();
         }
       });

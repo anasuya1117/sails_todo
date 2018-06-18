@@ -33,6 +33,14 @@ module.exports.connections = {
   },
   test: {
     adapter: 'sails-memory'
+  },
+
+  postgresqlServer: {
+    adapter: 'sails-postgresql',
+    host: 'postgres',
+    user: 'postgres', // optional
+    password: 'postgres', // optional
+    database: 'todo_app' //optional
   }
 
   /***************************************************************************

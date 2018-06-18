@@ -28,9 +28,9 @@ describe('Todo', function() {
   });
 
   it('it should create a record', function(done) {
-    new_todo = { name: "test", description: "some description" }
+    new_todo = { title: "test", description: "some description" }
     Todo.create(new_todo).exec(function(err, todo) {
-      todo.should.be.an.instanceOf(Object).and.have.property('name', todo.name);
+      todo.should.be.an.instanceOf(Object).and.have.property('title', todo.title);
     });
     return done();
   });
