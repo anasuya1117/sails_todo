@@ -11,7 +11,7 @@
 
 module.exports.http = {
 
-  /****************************************************************************
+  /** **************************************************************************
   *                                                                           *
   * Express middleware to use for every Sails request. To add custom          *
   * middleware to the mix, add a function to the middleware config object and *
@@ -19,16 +19,16 @@ module.exports.http = {
   * backwards-compatibility with Sails v0.9.x apps that use the               *
   * `customMiddleware` config option.                                         *
   *                                                                           *
-  ****************************************************************************/
+  *************************************************************************** */
 
   middleware: {
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
   * router is invoked by the "router" middleware below.)                     *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
     // order: [
     //   'startRequestTimer',
@@ -48,11 +48,11 @@ module.exports.http = {
     //   '500'
     // ],
 
-  /****************************************************************************
+  /** **************************************************************************
   *                                                                           *
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
-  ****************************************************************************/
+  *************************************************************************** */
 
     // myRequestLogger: function (req, res, next) {
     //     console.log("Requested :: ", req.method, req.url);
@@ -60,7 +60,7 @@ module.exports.http = {
     // }
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * The body parser that will handle incoming multipart HTTP requests. By    *
   * default,Sails uses [skipper](http://github.com/balderdashy/skipper). See *
@@ -71,7 +71,7 @@ module.exports.http = {
   * different body parser or a custom function with req, res and next        *
   * parameters (just like any other middleware function).                    *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
 
     // bodyParser: require('skipper')({strict: true})
@@ -79,14 +79,14 @@ module.exports.http = {
   },
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * The number of milliseconds to cache static assets in production.         *
   * These are any flat files like images, scripts, styleshseets, etc.        *
   * that are served by the static middleware.  By default, these files       *
   * are served from `.tmp/public`, a hidden folder compiled by Grunt.        *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // cache: 31557600000
 };

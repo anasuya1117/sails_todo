@@ -14,22 +14,22 @@
 
 module.exports.session = {
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Session secret is automatically generated when your new app is created   *
   * Replace at your own risk in production-- you will invalidate the cookies *
   * of your users, forcing them to log in again.                             *
   *                                                                          *
-  ***************************************************************************/
-  secret: '58dde9303bce21638d21e4be7c504755',
+  ************************************************************************** */
+  secret: "58dde9303bce21638d21e4be7c504755",
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Set options for the session cookie. See                                  *
   * https://github.com/expressjs/session#cookie for more info.               *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // cookie: {
   //   // Cookie expiration in milliseconds.
@@ -45,7 +45,7 @@ module.exports.session = {
   //   secure: false
   // },
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Uncomment the following lines to set up a Redis session store that can   *
   * be shared across multiple Sails.js servers.                              *
@@ -55,18 +55,18 @@ module.exports.session = {
   * See http://bit.ly/redis-session-config for more information about how to *
   * configure                                                                *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // adapter: 'connect-redis',
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * The following values are optional, if no options are set a redis         *
   * instance running on localhost is expected. Read more about options at:   *
   *                                                                          *
   * https://github.com/visionmedia/connect-redis                             *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // host: 'localhost',
   // port: 6379,
@@ -76,7 +76,7 @@ module.exports.session = {
   // prefix: 'sess:',
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Uncomment the following lines to set up a MongoDB session store that can *
   * be shared across multiple Sails.js servers.                              *
@@ -85,12 +85,12 @@ module.exports.session = {
   * Use version 0.8.2 with Node version <= 0.12                              *
   * Use the latest version with Node >= 4.0                                  *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // adapter: 'mongo',
   // url: 'mongodb://user:password@localhost:27017/dbname', // user, password and port optional
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Optional Values:                                                         *
   *                                                                          *
@@ -100,7 +100,7 @@ module.exports.session = {
   * See http://bit.ly/mongooptions for more information about options        *
   * available in `mongoOptions`                                              *
   *                                                                          *
-  ***************************************************************************/
+  ************************************************************************** */
 
   // collection: 'sessions',
   // stringify: true,

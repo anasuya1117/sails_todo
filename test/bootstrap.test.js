@@ -1,33 +1,29 @@
-var Sails = require('sails');
-var Barrels = require('barrels');
-global.chai = require('chai');
-global.should = chai.should();
+const Sails = require("sails");
+global.chai = require("chai");
 
-require('should');
+global.should = global.chai.should();
+// require("should");
 
-before(function(done) {
+/* global before after */
+/* eslint no-undef: "error" */
 
+before((done) => {
   Sails.lift({
     log: {
-      level: 'error'
+      level: "error",
     },
     models: {
-      connection: 'test',
-      migrate: 'drop'
-    }
-  }, function(err) {
-    if (err)
-      return done(err);
-    else {
-      var barrels = new Barrels();
-      fixtures = barrels.data;
+      connection: "test",
+      migrate: "drop",
+    },
+  }, (err) => {
+    if (err) { return done(err); }
       return done();
-    }
   });
 });
 
 // Global after hook
-after(function(done) {
-  console.log();
+after((done) => {
   Sails.lower(done);
+  return done();
 });

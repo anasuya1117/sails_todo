@@ -1,25 +1,29 @@
-var should = require('should');
-describe('Todo', function() {
+const should = require("should");
 
-  it('should check the find method', function(done){
+/* global Todo it describe */
+/* eslint no-undef: "error" */
+/* eslint-disable no-unused-expressions */
+
+describe("Todo", () => {
+  it("should check the find method", (done) => {
     Todo.find()
-    .then(function(todo){
+    .then((todo) => {
       todo.length.should.be.eql(0);
       done();
     })
     .catch(done);
   });
 
-  it('should be empty', function(done) {
-    Todo.find().then(function(todo) {
+  it("should be empty", (done) => {
+    Todo.find().then((todo) => {
         todo.length.should.be.aboveOrEqual(0);
         done();
       })
       .catch(done);
   });
 
-  it('it should have a name', function(done) {
-    Todo.create().exec(function(err) {
+  it("it should have a name", (done) => {
+    Todo.create().exec((err) => {
       should(err).not.be.undefined;
       err.should.be.an.Array;
       err.should.have.lengthOf(1);
@@ -27,17 +31,17 @@ describe('Todo', function() {
     });
   });
 
-  it('it should create a record', function(done) {
-    new_todo = { title: "test", description: "some description" }
-    Todo.create(new_todo).exec(function(err, todo) {
-      todo.should.be.an.instanceOf(Object).and.have.property('title', todo.title);
+  it("it should create a record", (done) => {
+    const newTodo = { title: "test", description: "some description" };
+    Todo.create(newTodo).exec((err, todo) => {
+      todo.should.be.an.instanceOf(Object).and.have.property("title", todo.title);
     });
     return done();
   });
 
-  it('it should not create a record if name is not given', function(done) {
-    new_todo = { description: "some description" }
-    Todo.create(new_todo).exec(function(err, todo) {
+  it("it should not create a record if name is not given", (done) => {
+    const newTodo = { description: "some description" };
+    Todo.create(newTodo).exec((err, todo) => {
       should(err).not.be.undefined;
       should(todo).be.undefined;
     });

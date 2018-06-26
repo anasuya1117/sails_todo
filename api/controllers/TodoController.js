@@ -3,76 +3,91 @@
  * @description :: Server-side logic for managing Carscontrollers
  */
 
+/* eslint-disable consistent-return */
+/* global Todo _ sails */
+/* eslint no-undef: "error" */
+
 module.exports = {
 
-  fetch: function(req, res, next) {
+  fetch(req, res, next) {
     Todo.find()
-    .exec(function(err, todo) {
-      // if (err) return next(err);
+    .exec((err, todo) => {
+      /* istanbul ignore next */
+      if (err) return next(err);
       return res.json(todo);
     });
   },
 
-  create: function(req, res, next) {
-    var params = {};
+  create(req, res) {
+    let params = {};
     params = _.merge({}, req.params.all(), req.body);
     Todo.create(params)
-    .exec(function(err, todo) {
+    .exec((err, todo) => {
       if (err) return res.badRequest(err);
-      sails.log('Todo with id '+ todo.id + ' created');
+      sails.log(`Todo with id ${todo.id} created`);
       return res.json(todo);
     });
   },
 
-  findOne: function(req, res, next) {
-    var id = parseInt(req.param('id'));
+  findOne(req, res, next) {
+    const id = parseInt(req.param("id"));
     if (!id) {
-      return res.badRequest('Required param: id not provided.');
+      return res.badRequest("Required param: id not provided.");
     }
     Todo.findOne({
-      id: id
+      id,
     })
-    .exec(function(err, todo) {
-      if (todo === undefined) return res.notFound({
-        "error": "Todo not found."
-      });
-      // if (err) return next(err);
+    .exec((err, todo) => {
+      if (todo === undefined) {
+        return res.notFound({
+          error: "Todo not found.",
+        });
+      }
+      /* istanbul ignore next */
+      if (err) return next(err);
       return res.json(todo);
     });
   },
 
-  update: function(req, res, next) {
-    var id = parseInt(req.param('id'));
+  update(req, res, next) {
+    const id = parseInt(req.param("id"));
     if (!id) {
-      return res.badRequest('Required param: id not provided.');
+      return res.badRequest("Required param: id not provided.");
     }
-    var params = {};
+    let params = {};
     params = _.merge({}, req.params.all(), req.body);
-    Todo.update(id, params, function(err, todo) {
-      if (todo.length === 0) return res.notFound({
-        "error": "Record not found."
-      });
-      // if (err) return next(err);
+    Todo.update(id, params, (err, todo) => {
+      if (todo.length === 0) {
+        return res.notFound({
+          error: "Record not found.",
+        });
+      }
+      /* istanbul ignore next */
+      if (err) return next(err);
       res.json(todo);
     });
   },
 
-  delete: function(req, res, next) {
-    var id = parseInt(req.param('id'));
+  delete(req, res, next) {
+    const id = parseInt(req.param("id"));
     if (!id) {
       return res.badRequest({
-        "error": "ID should be an integer and is required"
+        error: "ID should be an integer and is required",
       });
     }
     Todo.findOne({
-      id: id
-    }).exec(function(err, result) {
-      // if (err) return res.serverError(err);
-      if (!result) return res.notFound({
-        "error": "Record not found."
-      });
-      Todo.destroy(id, function(err) {
-        // if (err) return next(err);
+      id,
+    }).exec((err, result) => {
+      /* istanbul ignore next */
+      if (err) return res.serverError(err);
+      if (!result) {
+        return res.notFound({
+          error: "Record not found.",
+        });
+      }
+      Todo.destroy(id, (derr) => {
+        /* istanbul ignore next */
+        if (derr) return next(derr);
         return res.ok();
       });
     });

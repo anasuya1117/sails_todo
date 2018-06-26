@@ -32,9 +32,10 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "test": "rm -rf ./unit.xml && CI=true; node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/**/*.test.js --reporter mocha-junit-reporter --report clover",
-    "pretest": "eslint ./test -o eslint.xml -f junit; exit 0",
-    "posttest": "node xml_merge.js"
+    "test": "rm -rf ./unit.xml && CI=true; node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/**/*.test.js --reporter mocha-junit-reporter",
+    "pretest": "eslint ./api ./test ./config -o eslint.xml -f junit; exit 0",
+    "posttest": "istanbul cover --report clover _mocha test",
+    "lint": "./node_modules/.bin/eslint ./api ./test ./config -o eslint.xml -f junit; exit 0"
   },
   "main": "app.js",
   "repository": {

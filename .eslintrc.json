@@ -39,6 +39,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "radix": "off"
+
     }
 } 

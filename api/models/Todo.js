@@ -1,20 +1,20 @@
 module.exports = {
   attributes: {
     id: {
-      type: 'integer',
-      autoIncrement: true
+      type: "integer",
+      autoIncrement: true,
     },
     title: {
-      type: 'string',
-      required: true
+      type: "string",
+      required: true,
     },
     description: {
-      type: 'string',
+      type: "string",
     },
     isCompleted: {
-      type: 'boolean',
-      default: false
-    }
+      type: "boolean",
+      default: false,
+    },
 
   },
 };
